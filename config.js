@@ -7,7 +7,7 @@ var config = null;
 if (process.env.NODE_ENV === "production") {
     config = {
         internal_port: process.env.PORT || 8080,
-        protocol: 'https'
+        protocol: process.env.PROTOCOL || "https"
     };
 
     if (!process.env.ACCESS_TOKEN_SIGNING_KEY) {
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
     config = {
         external_port: 3052,
         internal_port: 3052,
-        protocol: 'http',
+        protocol: process.env.PROTOCOL || "http",
         mongodb_connection_string: "mongodb://localhost/nitrogen_test",
         proxy_messages_endpoint: "http://localhost:3053/api/v1/messages",
         web_admin_uri: "http://localhost:9000"
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
 } else {
     config = {
         external_port: 3032,
-        protocol: 'http',
+        protocol: process.env.PROTOCOL || "http",
         mongodb_connection_string: "mongodb://localhost/nitrogen_dev",
         proxy_messages_endpoint: "http://localhost:3033/api/v1/messages",
         web_admin_uri: "http://localhost:9000"
