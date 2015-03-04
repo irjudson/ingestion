@@ -1,2 +1,2 @@
 exports.crossOrigin = require("./crossOrigin");
-exports.accessTokenRelay = require("./accessTokenRelay");
+exports.accessTokenAuth = require("./accessTokenAuth");

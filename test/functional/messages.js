@@ -1,5 +1,6 @@
 var assert = require('assert')
   , config = require('../../config')
+  , core = require('nitrogen-core')
   , fixtures = require('../fixtures')
   , log = require('winston')
   , request = require('request');
@@ -14,7 +15,7 @@ describe('messages endpoint', function() {
                 }
             }],
             headers: {
-                Authorization: 'Bearer ' + fixtures.testJwtToken
+                Authorization: core.fixtures.models.accessTokens.user.toAuthHeader()
             }
         }, function(err, resp, body) {
             assert(!err);
